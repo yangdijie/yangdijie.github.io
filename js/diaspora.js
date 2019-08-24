@@ -68,7 +68,8 @@ var Diaspora = {
     HS: function(tag, flag) {
         var id = tag.data('id') || 0,
             url = tag.attr('href'),
-            title = tag.attr('title') || tag.text();
+            title = tag.attr('title') + " - " + $("#config-title").text();
+
         if (!$('#preview').length || !(window.history && history.pushState)) location.href = url;
         Diaspora.loading()
         var state = {d: id, t: title, u: url};
@@ -305,8 +306,8 @@ $(function() {
     $('body').on('click', function(e) {
         var tag = $(e.target).attr('class') || '',
             rel = $(e.target).attr('rel') || '';
-        // .content > p > img
-        if (e.target.nodeName == "IMG" && $(e.target).parent().get(0).nodeName == "P") {
+        // .content > ... > img
+        if (e.target.nodeName == "IMG" && $(e.target).parents('div.content').length > 0) {
             tag = 'pimg';
         }
         if (!tag && !rel) return;
@@ -315,6 +316,7 @@ $(function() {
             case (tag.indexOf('switchmenu') != -1):
                 window.scrollTo(0, 0)
                 $('html, body').toggleClass('mu');
+                return false;
                 break;
             // next page
             case (tag.indexOf('more') != -1):
@@ -355,8 +357,9 @@ $(function() {
                 if ($('#preview').hasClass('show')) {
                     history.back();
                 } else {
-                    location.href = "/";
+                    location.href = $('.icon-home').data('url')
                 }
+                return false;
                 break;
             // qrcode
             case (tag.indexOf('icon-scan') != -1):
@@ -366,16 +369,19 @@ $(function() {
                     $('.icon-scan').addClass('tg')
                     $('#qr').qrcode({ width: 128, height: 128, text: location.href}).toggle()
                 }
+                return false;
                 break;
             // audio play
             case (tag.indexOf('icon-play') != -1):
                 $('#audio')[0].play()
                 $('.icon-play').removeClass('icon-play').addClass('icon-pause')
+                return false;
                 break;
             // audio pause
             case (tag.indexOf('icon-pause') != -1):
                 $('#audio')[0].pause()
                 $('.icon-pause').removeClass('icon-pause').addClass('icon-play')
+                return false;
                 break;
             // history state
             case (tag.indexOf('cover') != -1):
