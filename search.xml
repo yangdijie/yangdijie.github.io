@@ -165,4 +165,34 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>搭建博客图片</title>
+    <url>/2022/02/03/202223-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+
+<hr>
+<p>上一篇刚写过如何用hexo以及github搭建一个静态博客网站。本来还想要对这个hexo支持的next的主题进行相关配置展开的，最后还是觉得博客的作用是什么，记录自己的学习经历，提供相关的资料给需要的人，提供给自己一个知识库，那么那些炫酷的动态背景，好看的ui交互我就不打算深入了。有几个next主题使用的好的博主已经收藏了这里记录一下他们的地址。</p>
+<ul>
+<li><a href="https://nodejs.org/zh-cn/">二次元游宅客</a></li>
+<li><a href="http://shenzekun.cn/">Moorez的博客</a></li>
+</ul>
+<hr>
+<h3 id="1-如何在hexo支持的情况下引用图片"><a href="#1-如何在hexo支持的情况下引用图片" class="headerlink" title="1.如何在hexo支持的情况下引用图片"></a>1.如何在hexo支持的情况下引用图片</h3><p>目前已知的情况是，可以直接把图片放在hexo站点目录中，然后引用站点本地图片。另外的情况就是引用网络连接的图片，引用网络连接的图片是最后情况，但是目前国内的免费图床支持不是很好，做得好需要收费，目前没有太多需求，故采用引用站点图片方案。</p>
+<h4 id="1-1-引用站点图片"><a href="#1-1-引用站点图片" class="headerlink" title="1.1.引用站点图片"></a>1.1.引用站点图片</h4><p>首先是在站点目录的source文件中建立一个图片资源文件夹，例如名称为images，然后再此文件夹中添加一个测试图片，名称为 test.jpg   那么在Markdown语法中引用的时候这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片注释](/images/test.jpg &quot;图片标题&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/images/test.jpg" alt="测试图片"></p>
+<p>这里因为采用了Typora的本地设置图片目录的设定。不然本地展示不出，需要将这个目录设置成跟github Page的那个目录对应。</p>
+<h4 id="1-2-引用网络连接图片"><a href="#1-2-引用网络连接图片" class="headerlink" title="1.2.引用网络连接图片"></a>1.2.引用网络连接图片</h4><p>直接是在Markdown语法中的href写入图片连接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![avatar](https://s7.51cto.com/images/blog/202105/10/ef05d858d8baa7b7b2810cced1667b7d.png)</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://s7.51cto.com/images/blog/202105/10/ef05d858d8baa7b7b2810cced1667b7d.png" alt="avatar"  />
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
 </search>
