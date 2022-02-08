@@ -187,6 +187,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![avatar](https://s7.51cto.com/images/blog/202105/10/ef05d858d8baa7b7b2810cced1667b7d.png)</span><br></pre></td></tr></table></figure>
 
 <img data-src="https://s7.51cto.com/images/blog/202105/10/ef05d858d8baa7b7b2810cced1667b7d.png" alt="avatar"  />
+
+<p><strong>解决Hexo博客引用网络图片无法显示的问题</strong></p>
+<p>方法其实很简单，只需要文章的头部如下图所示位置添加<code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>这一句话就可以完美解决问题。我刚开始引入这个红心的网络连接的时候，在Typora可以显示出来但是在hexo serve以后，在本地浏览器会出现获取这个图片资源403错误。</p>
 ]]></content>
       <categories>
         <category>博客</category>
